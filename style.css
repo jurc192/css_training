@@ -5,27 +5,41 @@ h1 {
 html, body {
     height: 100vh;
     margin: 0;
+    /* box-sizing: border-box; */
 }
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
 /*-----------------------------*/
+
 body {
     display: grid;
-    grid-template-rows: 2em minmax(200px, 2fr) minmax(200px, 1fr);
-    grid-template-columns: 1fr 1fr minmax(200px, 1fr);
+    grid-template-rows:    auto minmax(200px, 2fr) minmax(200px, 1fr);
+    grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(auto, 1fr);
     grid-template-areas: "title  title  title "
                          "imgA   imgA   params"
                          "imgB   imgB   params";
-    gap: 1em;
-    background: lightgray;
-}
-
-div {
-    background: lightgreen;
+    gap: 0.5em;
+    padding: 1em;
 }
 
 header {
     grid-area: title;
 }
 
+.preview {
+    overflow: auto;
+    display: flex;
+}
+.preview.live {
+    grid-area: imgA;
+    object-fit: cover;
+}
+.preview.other {
+    grid-area: imgB;
+    object-fit: cover;
+}
 img {
     display: block;
     max-width: 100%;
@@ -33,21 +47,32 @@ img {
     margin: auto;
 }
 
-.preview {
-    overflow: auto;
-    display: flex;
-}
-
-.preview.live {
-    grid-area: imgA;
-    object-fit: cover;
-}
-
-.preview.other {
-    grid-area: imgB;
-    object-fit: cover;
-}
-
 .parameters {
     grid-area: params;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    max-height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.parameters li {
+    padding: 1em;
+    margin: 1em 0;
+    background-color: lightgrey;
+    display: flex;
+    gap: 1em;
+}
+
+.parameters label {
+    flex: 1 0 15ch;     /* min width = XX characters (ch) */
+    align-self: center;
+    background-color: lightpink;
+}
+.parameters input {
+    flex: 1 0 15ch;
+    min-width: 15ch;
 }
