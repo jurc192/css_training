@@ -3,21 +3,19 @@ h1 {
     margin: 0;
 }
 html, body {
-    height: 100%;
+    height: 100vh;
     margin: 0;
 }
 /*-----------------------------*/
 body {
     display: grid;
+    grid-template-rows: 2em minmax(200px, 2fr) minmax(200px, 1fr);
+    grid-template-columns: 1fr 1fr minmax(200px, 1fr);
     grid-template-areas: "title  title  title "
                          "imgA   imgA   params"
                          "imgB   imgB   params";
-    grid-template-rows: 2em minmax(200px, 2fr) minmax(200px, 1fr);
-    grid-template-columns: 1fr 1fr minmax(200px, 1fr);
     gap: 1em;
-
     background: lightgray;
-    /* padding: 1em; */
 }
 
 div {
@@ -28,12 +26,26 @@ header {
     grid-area: title;
 }
 
-.live_preview {
-    grid-area: imgA;
+img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
 }
 
-.other_preview {
+.preview {
+    overflow: auto;
+    display: flex;
+}
+
+.preview.live {
+    grid-area: imgA;
+    object-fit: cover;
+}
+
+.preview.other {
     grid-area: imgB;
+    object-fit: cover;
 }
 
 .parameters {
