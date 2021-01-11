@@ -1,0 +1,41 @@
+/* Disable default browser CSS */
+h1 {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+/*-----------------------------*/
+body {
+    display: grid;
+    grid-template-areas: "title  title  title "
+                         "imgA   imgA   params"
+                         "imgB   imgB   params";
+    grid-template-rows: 2em minmax(200px, 2fr) minmax(200px, 1fr);
+    grid-template-columns: 1fr 1fr minmax(200px, 1fr);
+    gap: 1em;
+
+    background: lightgray;
+    /* padding: 1em; */
+}
+
+div {
+    background: lightgreen;
+}
+
+header {
+    grid-area: title;
+}
+
+.live_preview {
+    grid-area: imgA;
+}
+
+.other_preview {
+    grid-area: imgB;
+}
+
+.parameters {
+    grid-area: params;
+}
