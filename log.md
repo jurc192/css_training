@@ -76,3 +76,11 @@ Za tatija: https://css-for-js.dev/
 
 
 **Why do units matter so much?** px, vh, em, fr...
+
+
+
+TODO:
+
+- debug why input box overflows parent.
+- responsive design on small screens (not important!)
+- colors, fonts, borders, shadows etc.

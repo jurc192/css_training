@@ -1,22 +1,21 @@
-/* Disable default browser CSS */
-h1 {
-    margin: 0;
+@import "normalize.css";        /* Clear default browser css crap */
+
+*, *::before, *::after {
+    box-sizing: border-box;     /* Border-box sizing everywhere */
 }
+
+/*
+    Page layout w/ CSS grid
+*/
 html, body {
     height: 100vh;
     margin: 0;
-    /* box-sizing: border-box; */
 }
-
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-/*-----------------------------*/
 
 body {
     display: grid;
-    grid-template-rows:    auto minmax(200px, 2fr) minmax(200px, 1fr);
-    grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(auto, 1fr);
+    grid-template-rows:    auto minmax(200px, 3fr) minmax(200px, 2fr);
+    grid-template-columns: minmax(200px, 2fr) minmax(200px, 2fr) minmax(200px, 3fr);
     grid-template-areas: "title  title  title "
                          "imgA   imgA   params"
                          "imgB   imgB   params";
@@ -47,30 +46,29 @@ img {
     margin: auto;
 }
 
-.parameters {
+.parameters {                  /* Param container */
     grid-area: params;
     padding: 0;
     margin: 0;
-    overflow: auto;
     max-height: 100%;
-    max-width: 100%;
+    overflow: auto;
+
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
 
-.parameters li {
-    padding: 1em;
-    margin: 1em 0;
-    background-color: lightgrey;
+.parameters li {                /* Param items */
+    padding: 0.5em;
+    margin: 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 1em;
 }
 
 .parameters label {
-    flex: 1 0 15ch;     /* min width = XX characters (ch) */
+    flex: 1 0 15ch;             /* min width = XX characters (ch) */
     align-self: center;
-    background-color: lightpink;
 }
 .parameters input {
     flex: 1 0 15ch;
